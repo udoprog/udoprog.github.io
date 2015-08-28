@@ -1,0 +1,12 @@
+# Site settings
+title: udoprog.github.io
+email: johnjohn.tedro@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  I'm a Software Developer working at solving hard monitoring problems at Spotify.
+baseurl: ""
+url: "https://udoprog.github.io"
+twitter_username: udoprog
+github_username:  udoprog
+
+# Build settings
+markdown: kramdown
