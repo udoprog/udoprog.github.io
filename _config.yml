@@ -12,3 +12,6 @@ excerpt_separator: <!-- more -->
 
 # Build settings
 markdown: kramdown
+
+comments:
+  short_name: udoproggithubio
