@@ -19,7 +19,7 @@ a flexible and lightweight fashion.
 
 <!-- more -->
 
-# TinySerializer
+## TinySerializer
 
 Enter [TinySerializer](https://github.com/udoprog/tiny-serializer-java).
 
@@ -109,7 +109,7 @@ dependencies:
 </dependencies>
 {% endhighlight %}
 
-# Implementation Details
+## Implementation Details
 
 So the above provides you with essentially _free_ object graph serialization
 for _your_ objects, but what about primitive types and containers?
@@ -148,7 +148,7 @@ example](https://github.com/udoprog/tiny-serializer-java/blob/master/tiny-serial
 There are also plenty of configuration options available in `TinySerialize`
 that you can play around with.
 
-# Final Words
+## Final Words
 
 I hope you find it useful!
 
