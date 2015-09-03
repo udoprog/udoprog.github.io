@@ -13,5 +13,8 @@ excerpt_separator: <!-- more -->
 # Build settings
 markdown: kramdown
 
+paginate: 2
+paginate_path: "/blog/page:num/"
+
 comments:
   short_name: udoproggithubio

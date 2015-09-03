@@ -242,3 +242,17 @@
         }
     }
 }
+
+.pagination {
+    .previous {
+        font-size: 80%;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .next {
+        font-size: 120%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
