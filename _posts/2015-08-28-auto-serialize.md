@@ -9,13 +9,12 @@ tags: [java]
 In this post I'll present a new framework for serialization in Java that I've
 been working on over the last year.
 
-The goal was initially to implement a paradighm which I felt I've been
-duplicating in many times; Efficient and portable binary serialization of
-Objects.
+The initial goal was to implement a paradigm which I felt I've been
+duplicating many times;
+efficient, portable, and hassle-free serialization of objects.
 
-I'm also biased towards functional programming, so immutability plays a big
-role in my projects. There are not many projects out that that provides this in
-a flexible and lightweight fashion.
+I'm also strongly biased towards functional programming, so immutability plays
+a big role in my projects.
 
 <!-- more -->
 
@@ -33,7 +32,7 @@ I realized that annotation processors have access to a tremendous amount of
 information about the types and structure of your classes, and that this
 information could be used to generate very efficient and readable serializers.
 
-In the following example I'll be using [lombok's @Data annotation](https://projectlombok.org/features/Data.html).
+In the following example, I'll be using [Lombok's @Data annotation](https://projectlombok.org/features/Data.html).
 
 So, given a `Person` like the following:
 
@@ -87,7 +86,7 @@ The use of `SerializerFramework` is an important detail, this gives us _a lot_
 of freedom in deciding the exact details of how this serialization is to
 operate.
 
-In the serializer, there are no concrete implementations, or static
+In the serializer, there are no concrete implementations or static
 initialization. Everything is Plain Old _Boring_ Java.
 
 You activate the serializer would be to add the following snippet to your maven
@@ -114,7 +113,7 @@ dependencies:
 So the above provides you with essentially _free_ object graph serialization
 for _your_ objects, but what about primitive types and containers?
 
-To this end I've built a small companion implementation in
+To this end, I've built a small companion implementation in
 `tiny-serializer-core` which provides you with a relatively sane
 `SerializerFramework` implementation.
 
@@ -156,8 +155,6 @@ If you want to know more, go to [udoprog/tiny-serializer-java](https://github.co
 There is plenty more to read and play with there.
 
 I also intend to eventually implement field-value based serialization that
-allows for out-of-order field de-serialization.
-Each value will be prefixed by an identifier instead of relying on strict
-ordering.
+allows for out-of-order fields.
 This is the basis for semantically versioned objects with forward
-compatibility and I consider it an important omission.
+compatibility, and I consider it an important omission.
