@@ -31,7 +31,7 @@ allowed with a given implementation.
 So let's build an API using that.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * My Library.
@@ -72,7 +72,7 @@ interfaces, abstract classes, and
 Let us introduce a minor change to the library.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 public interface MyLibrary {
     /* .. */
@@ -142,7 +142,7 @@ is responsible for looking up the method at runtime.
 So this is good _unless_ the client implements the given API.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * ... boring documentation ...
@@ -209,7 +209,7 @@ In practice, it means that once your javadoc asserts something, that assertion
 must be versioned as well.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * @since 1.0
@@ -225,7 +225,7 @@ public interface MyLibrary {
 You may extend it in a manner, which does not violate the existing assertions.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * @since 1.0
@@ -243,7 +243,7 @@ public interface MyLibrary {
 You may not however, change the behavior from `current Galaxy` to `Milky Way`.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * @since 1.0
@@ -270,7 +270,7 @@ The world changed, you've grown and realized the errors of your way.
 It's time to fix all the design errors you made in the previous version.
 
 {% highlight java %}
-package eu.toolchain.mylib2
+package eu.toolchain.mylib2;
 
 /**
  * My Library, Reloaded.
@@ -335,7 +335,7 @@ You can use this to your advantage when releasing a new Major version.
 Assume that you are renaming a the following `#badName()` method.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * @since 1.0
@@ -351,7 +351,7 @@ public interface MyLibrary {
 Into `#goodName()`.
 
 {% highlight java %}
-package eu.toolchain.mylib2
+package eu.toolchain.mylib2;
 
 /**
  * @since 2.0
@@ -368,7 +368,7 @@ You can go back and release a new _minor_ version of your `1.x` branch
 containing the newly named method with a `@Deprecated` annotation.
 
 {% highlight java %}
-package eu.toolchain.mylib
+package eu.toolchain.mylib;
 
 /**
  * @since 1.0
