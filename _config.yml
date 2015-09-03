@@ -8,5 +8,7 @@ url: "https://udoprog.github.io"
 twitter_username: udoprog
 github_username:  udoprog
 
+excerpt_separator: <!-- more -->
+
 # Build settings
 markdown: kramdown

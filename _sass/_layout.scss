@@ -175,6 +175,14 @@
 
     > li {
         margin-bottom: $spacing-unit;
+
+        > h2 {
+            margin-bottom: 0px;
+        }
+
+        .excerpt > p {
+            margin-bottom: 0px;
+        }
     }
 }
 

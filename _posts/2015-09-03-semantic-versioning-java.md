@@ -6,9 +6,9 @@ category: programming
 tags: [java]
 ---
 
-In this post, I'll talk at length about [semantic versioning](http://semver.org/),
-and how I believe it should be applied in practice for the long-term maintenance
-of Java libraries.
+In this post, about [semantic versioning](http://semver.org/),
+and how I believe it can be efficiently applied for the benefit of long-term
+interoperability of Java libraries.
 
 <!-- more -->
 
@@ -23,7 +23,12 @@ development of your software.
 
 # Hello Java
 
-Let's build an API.
+Java has a lot of things which could qualify as members your public API.
+The most distinct feature in the language is the `interface`, a fully abstract
+class definition that forces you to describe all possible interactions that are
+allowed with a given implementation.
+
+So let's build an API using that.
 
 {% highlight java %}
 package eu.toolchain.mylib
@@ -41,25 +46,30 @@ public interface MyLibrary {
 }
 {% endhighlight %}
 
-Consider `@since`, it does't contain the patch version. It could, but it would
-be useless information.
-A patch should _never_ introduce API, that privilege is left to the _minor_
-version.
+Consider `@since`, here it doesn't contain the patch version. It could, but it
+wouldn't make a difference.
+A patch must _never_ modify API, that privilege is left to the major, and
+the minor version.
 
-The Java ecosystem would not work without Maven, and the way you _could_ expose
-your library is by putting the above in an API artifact named
-`eu.toolchain.mylib:mylib-api`.
+Maven plays an important role here as well.
+The Java ecosystem relies on it to distribute libraries and resolve
+dependencies.
+The way you would expose your library is by putting the above in an API
+artifact named `eu.toolchain.mylib:mylib-api`.
+You might also feel compelled to provide an implementation, this could be
+`eu.toolchain.mylib:mylib-core`.
 
-Eventually, you might also feel compelled to provide an implementation, this
-could be distributed as `eu.toolchain.mylib:mylib-core`.
+The separation is not critical, but it helps in being explicit in what your
+public API is.
+Both for you and your users.
 
-The intent will be to have your users primarily interact with your
-library through interfaces, abstract classes, and [value
-objects](https://en.wikipedia.org/wiki/Value_object).
+My intent is to have your users primarily interact with your library through
+interfaces, abstract classes, and
+[value objects](https://en.wikipedia.org/wiki/Value_object).
 
-# A Minor Change
+## A Minor Change
 
-Let us introduce a minor change to our library.
+Let us introduce a minor change to the library.
 
 {% highlight java %}
 package eu.toolchain.mylib
@@ -76,20 +86,28 @@ public interface MyLibrary {
 }
 {% endhighlight %}
 
-In library terms, you are exposing another symbol, or for Java, this is simply
-another method, with a given signature added to the already existing
-`MyLibrary` interface.
-This only constitutes a _minor_ change because consumers if the API happened to
-use `1.0` will happily continue to operate in a runtime containing `1.1`.
-Anything linked against `1.0` will be oblivious to the fact that there are
+In library terms, we are exposing another symbol.
+For Java, this is just another method with a given signature added to the
+already existing `MyLibrary` interface.
+
+This only constitutes a _minor_ change because consumers of the API which
+happen to use `1.0` will happily continue to operate in a runtime containing
+`1.1`.
+Anything linked against `1.0` will be oblivious to the fact that there is
 added functionality in `1.1`.
+This is due to indirection that is introduced by Java, method calls use a
+very flexible symbolic reference to indicate the target of the invocation.
 
-Removing a method and not fixing all callers of it would cause
-[`NoSuchMethodError`](http://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchMethodError.html)
-when a caller with an outdated version attempts to call the missing method.
+Removing a method and not fixing all callers of it would eventually cause
+[`NoSuchMethodError`](http://docs.oracle.com/javase/8/docs/api/java/lang/NoSuchMethodError.html).
+Eventually, because it would not be triggered until a caller attempts the
+invocation at runtime. Ouch.
 
-One of the harder aspects of a minor change is _identifying_ them.
-It requires a fair bit of knowledge in how binary compatibility works.
+### What qualifies as a minor change
+
+Identifying what qualifies as a minor change, and what does not, is one of the
+harder aspects we need to deal with.
+It requires a bit of knowledge in how binary compatibility works.
 
 The Eclipse project has compiled
 [an excellent page](https://wiki.eclipse.org/Evolving_Java-based_APIs_2)
@@ -242,11 +260,10 @@ Your users will have operated under the assumption that the `current` galaxy
 will be consumed.
 
 Imagine their surprise when they run the newly upgraded application in the
-`Andromeda Galaxy` and they inadvertently expediate their own extinction
-because they didn't expect a breaking change in behavior for a _minor_ version
-**:/**.
+`Andromeda Galaxy` and they inadvertently expedite their own extinction because
+they didn't expect a breaking change in behavior for a _minor_ version **:/**.
 
-# A Major Change
+## A Major Change
 
 Ok, so it's time to rethink your library's existence.
 The world changed, you've grown and realized the errors of your way.
@@ -277,7 +294,7 @@ following:
 
 This sounds rough, but there are a few points to all this.
 
-#### Publishing a new package
+### Publishing a new package
 
 To maintain binary compatibility with the previous Major version.
 
@@ -286,21 +303,26 @@ You may communicate to your clients that something is deprecated, and it is
 time to upgrade.
 You cannot force an atomic upgrade.
 
-If you don't do this, and introduce a Major change that cannot co-exist in
-a single classpath. They are in for [a world of
-pain](https://groups.google.com/forum/#!topic/protobuf/te3wWId9Qyg).
+If you introduce a Major change that cannot co-exist in a single classpath.
+Your users are in for
+[a world of pain](https://groups.google.com/forum/#!topic/protobuf/te3wWId9Qyg).
 
-#### Publishing a new Maven artifact
+### Publishing a new Maven artifact
 
 To allow your users to _co-depend_ on the various major versions of your
 library.
 Maven will only allow one version of a `<groupId>:<artifactId>` combination to
 exist within a given build solution.
 
-If you don't change the artifact, changing the package does not matter.
-One package or the other will be missing.
+For our example, we could go from `eu.toolchain.mylib:mylib-api` to
+`eu.toolchain.mylib:mylib2-api`.
 
-#### Using @Deprecated to your advantage
+If you _don't_ change the artifact, Maven will not allow a user to install all
+your major versions.
+More importantly, any transitive dependencies requiring another major version
+will find themselves lacking.
+
+### Using @Deprecated to your advantage
 
 [`@Deprecated`](http://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html)
 is a standard annotation discouraging the use of the element that is annotated.
@@ -373,7 +395,7 @@ public interface MyLibrary {
 This is an excellent way of communicating what changes your users can expect,
 and can be applied to many situations.
 
-# Case studies
+## Case studies
 
 * Jackson performed a move between `1.x` and `2.x` from
   [`org.codehaus.jackson`](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.codehaus.jackson%22)
@@ -397,14 +419,14 @@ and can be applied to many situations.
   [compatibility](https://github.com/google/guava#important-warnings) for a long
   time, and communicate expectations through their
   [@Beta annotation](https://github.com/google/guava/blob/master/guava/src/com/google/common/annotations/Beta.java).
-  Unfortunately there are
+  Unfortunately, there are
   [many things using @Beta](https://github.com/google/guava/search?l=java&q=com.google.common.annotations.Beta&type=Code&utf8=%E2%9C%93)
   at the moment, making this a real consideration when using the library.
-* I've recentrly encouraged the Elasticsearch project to
+* I've recently encouraged the Elasticsearch project to
   [consider the versioning implications](https://github.com/elastic/elasticsearch/issues/13273)
   of their java client for the impending `2.x` release.
 
-# Project jigsaw
+## Project jigsaw
 
 [Project jigsaw](http://openjdk.java.net/projects/jigsaw/doc/quickstart.html)
 is an initiative that could improve things in the near future by implementing a
@@ -415,7 +437,7 @@ The specification will
 of the same module, but it should be possible to hook into the module discovery
 process in a manner that supports it.
 
-# Conclusion
+## Final Words
 
 Dependency hell is far from solved, but good practices can get us a long way.
 
