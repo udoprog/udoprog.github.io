@@ -271,3 +271,47 @@
         margin-left: 10px;
     }
 }
+
+.comparison {
+    border-collapse: collapse;
+    display: block;
+
+    th {
+        padding: 4px;
+        text-align: left;
+        font-size: 140%;
+        font-weight: 100;
+    }
+
+    tr:first-child {
+        th {
+            border-bottom: 1px solid black;
+
+            &:first-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    td {
+        padding: 8px;
+        vertical-align: top;
+
+        &.row-title {
+            font-weight: bold;
+            border-right: 1px solid black;
+            text-align: right;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+                list-style: none;
+                padding: 0;
+                margin: 5px;
+            }
+        }
+    }
+}
