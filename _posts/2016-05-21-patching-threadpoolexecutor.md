@@ -7,7 +7,7 @@ tags: [java, quality]
 ---
 
 In this post I'll describe an important patch that you _always_ want to use
-when using a ThreadPoolExecutor (`ExecutorService`) in Java.
+when using a `ThreadPoolExecutor` (or any `ExecutorService`) in Java.
 
 <!-- more -->
 
