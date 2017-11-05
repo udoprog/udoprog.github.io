@@ -1,11 +1,13 @@
 # Permalinks
 permalink:      /:year-:month-:day/:title
 
+description: > # this means to ignore newlines until "baseurl:"
+  A Software Engineer working with Monitoring @ Spotify.
+
 # Setup
-title:          Tale
+title:          udoprog.github.io
 paginate:       5
-baseurl:        "/tale"
-url:            "https://chesterhow.github.io"
+url:            "https://udoprog.github.io"
 
 # Assets
 sass:
@@ -17,15 +19,17 @@ markdown:       kramdown
 
 # About
 author:
-  name:         Chester How
-  url:          http://chester.how
-  email:        chesterhow@gmail.com
+  name:         John-John Tedro
+  url:          https://udoprog.github.io
+  email:        udoprog@tedro.se
 
 # Custom vars
 version:        3.4.1
 github:
-  repo:         https://github.com/chesterhow/tale
+  repo:         https://github.com/udoprog/udoprog.github.io
 
-# Gems
-gems:
+# Plugins
+plugins:
   - jekyll-paginate
+
+excerpt_separator: <!-- more -->
