@@ -26,7 +26,11 @@ author:
 # Custom vars
 version:        3.4.1
 github:
-  repo:         https://github.com/udoprog/udoprog.github.io
+  user: udoprog
+  repo: https://github.com/udoprog/udoprog.github.io
+
+twitter:
+  user: udoprog
 
 # Plugins
 plugins:

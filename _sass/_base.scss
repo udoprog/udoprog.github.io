@@ -63,3 +63,12 @@ img {
 td {
   vertical-align: top;
 }
+
+.icon > svg {
+  display: inline-block;
+  vertical-align: middle;
+
+  path {
+    fill: $grey-1;
+  }
+}
