@@ -1,0 +1,27 @@
+---
+layout: default
+permalink: /categories/
+---
+
+<div class="category">
+  <h1 class="category-title">Categories</h1>
+  <h1 class="category-description">List of all Categories</h1>
+</div>
+
+{% assign tags_list = site.categories %}
+  {% if tags_list.first[0] == null %}
+    {% for tag in tags_list %}
+      <h4>
+        <a href="/category/{{ tag }}">{{ tag | capitalize }}</a>,
+        {{ site.tags[tag].size | pluralize: "post", "posts" }}
+      </h4>
+    {% endfor %}
+  {% else %}
+    {% for tag in tags_list %}
+      <h4>
+        <a href="/category/{{ tag[0] }}">{{ tag[0] | capitalize }}</a>
+        {{ tag[1].size | pluralize: "post", "posts" }}
+      </h4>
+    {% endfor %}
+  {% endif %}
+{% assign tags_list = nil %}

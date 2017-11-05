@@ -1,10 +1,14 @@
 ---
 layout: default
-title: Home
 ---
 
+<div class="category">
+  <h1 class="category-title">{{ page.title }}</h1>
+  <h1 class="category-description">{{ page.description }}</h1>
+</div>
+
 <div class="catalogue">
-  {% for post in paginator.posts %}
+  {% for post in site.categories[page.tag] %}
     <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
       <div>
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
@@ -17,15 +21,4 @@ title: Home
       </div>
     </a>
   {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="left arrow">&#8592;</a>
-  {% endif %}
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="right arrow">&#8594;</a>
-  {% endif %}
-
-  <span>{{ paginator.page }}</span>
 </div>

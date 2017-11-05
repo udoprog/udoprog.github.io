@@ -6,14 +6,14 @@ category: java
 tags: [java, quality]
 ---
 
-*Edit (2017-11-05):* Since JDK 8u92, there is a [new option called `-XX:ExitOnOutOfMemoryError`][ExitOnOutOfMemoryError] that can effectively be used instead.
-
-[ExitOnOutOfMemoryError]: http://www.oracle.com/technetwork/java/javase/8u92-relnotes-2949471.html
-
 In this post I'll describe an important patch that you _always_ want to use
 when using a `ThreadPoolExecutor` (or any `ExecutorService`) in Java.
 
 <!-- more -->
+
+*Edit (2017-11-05):* Since JDK 8u92, there is a [new option called `-XX:ExitOnOutOfMemoryError`][ExitOnOutOfMemoryError] that can effectively be used instead.
+
+[ExitOnOutOfMemoryError]: http://www.oracle.com/technetwork/java/javase/8u92-relnotes-2949471.html
 
 The patch intends to mitigate the unexpected death of threads, and the impact
 that they should be allowed to have on your application.

@@ -1,5 +1,5 @@
 # Permalinks
-permalink:      /:year-:month-:day/:title
+permalink:      /:categories/:year-:month-:day/:title.html
 
 description: > # this means to ignore newlines until "baseurl:"
   A Software Engineer working with Monitoring @ Spotify.
@@ -31,5 +31,18 @@ github:
 # Plugins
 plugins:
   - jekyll-paginate
+  - liquid_pluralize
 
 excerpt_separator: <!-- more -->
+
+collections:
+  category:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: category
+    values:
+      layout: "category"
