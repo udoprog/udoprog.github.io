@@ -247,6 +247,8 @@ Using a well-defined path separator gets us pretty far regardless.
 
 Thank you for reading this. And please give me feedback on [`relative-path`] if you have the time.
 
+[Comments on Reddit.][reddit]
+
 [ReProto]: https://github.com/reproto
 [in Windows]: https://github.com/rust-lang/rust/blob/master/src/libstd/sys/windows/path.rs
 [serde]: https://serde.rs
@@ -264,3 +266,4 @@ Thank you for reading this. And please give me feedback on [`relative-path`] if 
 [bug-2]: https://github.com/racer-rust/racer/issues/47
 [bug-3]: https://github.com/rust-lang/rfcs/issues/1092
 [bug-4]: https://github.com/alexcrichton/cargo-vendor/issues/22
+[reddit]: https://www.reddit.com/r/rust/comments/7b22im/portability_concerns_with_path/
