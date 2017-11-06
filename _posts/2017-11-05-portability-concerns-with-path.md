@@ -177,7 +177,7 @@ Notice that the relative `foo/bar` traversal is maintained.
 The realization I had is that you can have a portable description if you can describe a path only
 in terms of its components, without filesystem roots.
 
-Neither `c:\foo\bar\baz` nor `/foo/bar/baz` are a portable descriptions, `foo/bar/baz` _is_.
+Neither `c:\foo\bar\baz` nor `/foo/bar/baz` are portable descriptions, `foo/bar/baz` _is_.
 It simply states; please traverse `foo`, then `bar`, then `baz`, relative to _some_ directory.
 
 Combining this _relative_ path with a native path allows it to be translated into a
@@ -240,7 +240,7 @@ is forced to [figure][bug-1] [out][bug-2] the [portability][bug-3] [puzzle][bug-
 # Final notes
 
 Character restrictions are _still_ a problem.
-At some point we might want to incorporate replacement procedures, or APIs that return `Result`'s
+At some point we might want to incorporate replacement procedures, or APIs that return `Result`
 to flag for non-portable characters.
 
 Using a well-defined path separator gets us pretty far regardless.
