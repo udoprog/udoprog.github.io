@@ -34,6 +34,7 @@ twitter:
 
 # Plugins
 plugins:
+  - jekyll-feed
   - jekyll-paginate
   - liquid_pluralize
 
