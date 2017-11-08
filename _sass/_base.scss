@@ -34,6 +34,12 @@ h6 {
   line-height: normal;
 }
 
+.nav-title {
+  .nav-head {
+    color: $color-primary-1;
+  }
+}
+
 a {
   color: $blue;
   text-decoration: none;
