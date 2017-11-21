@@ -191,4 +191,4 @@ If you are interested in the problem domain and have spare cycles, please join m
 [Heroic]: https://github.com/spotify/heroic
 [heroic-api]: https://github.com/udoprog/heroic/commit/api
 [Gitter]: https://gitter.im/reproto/reproto
-[reddit]: https://reddit.com/
+[reddit]: https://www.reddit.com/r/rust/comments/7ehe3l/building_services_with_reproto/
