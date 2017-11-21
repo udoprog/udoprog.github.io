@@ -147,7 +147,7 @@ You can check out the example [documentation for `io.reproto.toystore` here][doc
 [documentation comments]: https://github.com/reproto/reproto/blob/master/doc/spec.md#documentation
 [doc-example]: https://reproto.github.io/reproto/doc-examples/io/reproto/toystore/1.0.0/index.html
 
-# Checking your versions
+# Fearless versioning
 
 With package management comes the problems associated with _breaking changes_.
 
