@@ -168,7 +168,7 @@ This is all based on a [module named `semck`][semck] that operates on the AST-le
 
 Not everything is covered yet, but it's rapidly getting there.
 
-[semck]: https://github.com/reproto/reproto/tree/master/semck
+[semck]: https://github.com/reproto/reproto/tree/master/lib/semck
 
 # Finally
 
