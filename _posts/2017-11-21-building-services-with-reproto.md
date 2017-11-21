@@ -15,7 +15,7 @@ This post isn't about REST.
 It's about a project I've been working on for the last year to handle the lifecycle of JSON-based
 APIs:
 
-[Rethinking Protocols - reproto](https://github.com/reproto).
+[Rethinking Protocols - reproto](https://github.com/reproto/reproto).
 
 <!-- more -->
 
