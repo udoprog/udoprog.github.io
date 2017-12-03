@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
   A Software Engineer working with Monitoring @ Spotify.
 
 # Setup
-title:          udo's blog
+title:          the word of udoprog
 paginate:       5
 url:            "https://udoprog.github.io"
 
