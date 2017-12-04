@@ -5,8 +5,8 @@ description: ""
 category: rust
 ---
 
-This is my new series where I'll be discussing interesting Rust tidbits that I encountered when
-solving [Advent of Code 2017].
+This is a series where I'll be discussing interesting Rust tidbits that I encounter when solving
+[Advent of Code 2017].
 
 You can find the complete (spoiler) solution here: [udoprog/rust-advent-of-code-2017]
 
