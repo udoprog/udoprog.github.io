@@ -15,11 +15,11 @@ when using a `ThreadPoolExecutor` (or any `ExecutorService`) in Java.
 
 [ExitOnOutOfMemoryError]: http://www.oracle.com/technetwork/java/javase/8u92-relnotes-2949471.html
 
-The patch intends to mitigate the unexpected death of threads, and the impact
-that they should be allowed to have on your application.
+The patch intends to mitigate the unexpected death of threads, and mitigate the impact
+that they have on your application.
 
-The help illustrate illustrate this, here is an example project with a very
-nasty thread eating memory in it:
+To help illustrate illustrate this, here is an example project with a very
+nasty thread eating up all memory:
 
 {% highlight java %}
 public class Example {
@@ -92,15 +92,15 @@ The application is stuck, we are no longer seeing any `main: OK` messages.
 No stack traces, nothing.
 
 The reason is that out coordinator thread allocates memory for its message,
-this means that it could, and is the target of an `OutOfMemoryError` when the
+this means that it could be the target of an `OutOfMemoryError` when the
 allocation fails because `BadThread` has locked up all available memory and is
 refusing to die.
 
-This is when it gets interesting. `ThreadPoolExecutor` will happily catch and
-swallow any exception being thrown in one of its tasks. As per the
-documentation, it is explicitly left to the developer to handle this.
+This state is when it gets interesting. `ThreadPoolExecutor` will, as per documentation, happily catch and
+swallow any exception being thrown in one of its tasks.
+It is explicitly left to the developer to handle this.
 
-This leaves us with a coordinator at the end of the `Queue` to die, and `main`
+This leaves us with a dead coordinator thread at the other end of the `Queue`, and `main`
 is left to its own devices forever. :(.
 
 # The afterExecute patch
