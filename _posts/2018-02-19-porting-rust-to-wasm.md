@@ -306,7 +306,7 @@ The `url` crate wants to translate file segments into _real_ paths for you.
 It does this by hiding implementations of `file_url_segments_to_pathbuf` behind platform-specific gates.
 Obviously there there are no `wasm` implementations for this.
 
-And alternative here is to use something like [`hyper::Uri`], but that would currently mean pulling in all of hyper and its problematic dependencies.
+An alternative here is to use something like [`hyper::Uri`], but that would currently mean pulling in all of hyper and its problematic dependencies.
 I settled for just adding more indirection and isolating the components that needed HTTP and URLs into their own modules.
 
 [`hyper::Uri`]: https://docs.rs/hyper/0.11.18/hyper/struct.Uri.html
@@ -345,7 +345,7 @@ error: Could not compile `time`.
 
 Because the _derive_ feature was such a central component in what I wanted to port I started looking for alternatives instead of isolating it.
 
-My first attempt was the [`iso8601`] crate, a project using [`nom`] to parse ISO-8601 timestamps.
+My first attempt was the [`iso8601`] crate, a project using [`nom`] to parse ISO 8601 timestamps.
 Perfect!
 
 [`iso8601`]: https://crates.io/crates/iso8601
@@ -384,8 +384,8 @@ $ cargo tree
 ```
 
 So [`nom`] depends on [`memchr`], an interface to the [`memchr` libc function].
-That makes sense, since `nom` wants to scan for characters as quickly as possible.
-Unfortunately it makes it - and everything depending on it - seemingly unusable in `wasm` right now.
+That makes sense. `nom` wants to scan for characters as quickly as possible.
+Unfortunately that makes `nom` and everything depending on it unusable in `wasm` right now.
 
 [`memchr`]: https://crates.io/crates/memchr
 [`memchr` libc function]: https://linux.die.net/man/3/memchr
