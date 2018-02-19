@@ -411,19 +411,19 @@ When that component is no longer provided, the project _fails to compile_.
 Wouldn't it be better if the compiler error looked like this:
 
 ```
-error[EXXXX]: symbol is not available for your configuration (target_os = "wasm32", platform = "unknown"):
+error[EXXXX]: section unavailable for platform (target_arch = "wasm32", target_os = "unknown"):
   --> <registry>/src/github.com-1ecc6299db9ec823/rustc-serialize-X.X.X/src/serialize.rs:148:1
     |
-148 |         #[cfg_match(target_os, platform)] {
-    |                     ^^^^^^^^^^^^^^^^^^^ - configuration group defined here
+148 |         #[platform(target_arch, target_os)] {
+    |                    ^^^^^^^^^^^^^^^^^^^^^^ - platform defined here
     |             impl Decodable for path::PathBuf {
     |                 #[cfg(target_os = "redox")]
     |                 fn decode<D: Decoder>(d: &mut D) -> Result<path::PathBuf, D::Error> { .. }
     |
-    |                 #[cfg(platform = "unix")]
+    |                 #[cfg(target_os = "unix")]
     |                 fn decode<D: Decoder>(d: &mut D) -> Result<path::PathBuf, D::Error> { .. }
     |
-    |                 #[cfg(platform = "windows")]
+    |                 #[cfg(target_os = "windows")]
     |                 fn decode<D: Decoder>(d: &mut D) -> Result<path::PathBuf, D::Error> { .. }
     |             }
     |         }
