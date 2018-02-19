@@ -119,8 +119,8 @@ cargo tree
 ```
 
 [`cargo-web`]: https://github.com/koute/cargo-web
-[`Cargo.toml`]: https://github.com/reproto/reproto/blob/master/wasm/Cargo.toml
-[`src/main.rs`]: https://github.com/reproto/reproto/blob/master/wasm/src/main.rs
+[`Cargo.toml`]: https://github.com/reproto/reproto/blob/0356c90c60/wasm/Cargo.toml
+[`src/main.rs`]: https://github.com/reproto/reproto/blob/0356c90c60/wasm/src/main.rs
 
 # Big numbers
 
@@ -129,7 +129,7 @@ the solution.
 
 The first module where I encountered problems was [`core`].
 
-[`core`]: https://github.com/reproto/reproto/blob/master/lib/core/
+[`core`]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/
 
 The [`num`] crate _by default_ pulls in [`rustc-serialize`], which fails like this:
 
@@ -241,9 +241,9 @@ I then ported all code to use this so that I can swap out the implementation at 
 This wasn't particularly hard, seeing as I already pass around a [`Context`] to collect errors.
 Now it just needed to [learn a new trick].
 
-[`fs.rs`]: https://github.com/reproto/reproto/blob/master/lib/core/src/fs.rs
-[`Context`]: https://github.com/reproto/reproto/blob/master/lib/core/src/context.rs
-[learn a new trick]: https://github.com/reproto/reproto/blob/master/lib/core/src/context.rs#L25
+[`fs.rs`]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/src/fs.rs
+[`Context`]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/src/context.rs
+[learn a new trick]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/src/context.rs#L25
 
 Finally I ported all code that used [`Path`] to use [`relative-path`] instead.
 This guarantees that I won't be tempted to hit any of those platform-specific APIs like [`canonicalize`], which requires access to a filesystem.
@@ -254,7 +254,7 @@ This guarantees that I won't be tempted to hit any of those platform-specific AP
 
 With this in place I can now [capture the files] written to my filesystem abstraction directly into memory!
 
-[capture the files]: https://github.com/reproto/reproto/blob/master/lib/compile/lib.rs#L34
+[capture the files]: https://github.com/reproto/reproto/blob/0356c90c60/lib/compile/lib.rs#L34
 
 ## Ruining Christmas with native libraries
 
@@ -266,8 +266,8 @@ We don't have a filesystem!
 At some point it might be possible to plug in a solution that communicates with a service to fetch dependencies.
 But that is currently not the goal.
 
-[`repository`]: https://github.com/reproto/reproto/blob/master/doc/usage.md#setting-up-and-using-a-repository
-[Sha256 checksums]: https://github.com/reproto/reproto/blob/master/lib/repository/src/sha256.rs
+[`repository`]: https://github.com/reproto/reproto/blob/0356c90c60/doc/usage.md#setting-up-and-using-a-repository
+[Sha256 checksums]: https://github.com/reproto/reproto/blob/0356c90c60/lib/repository/src/sha256.rs
 
 This realization made the solution obvious: web users don't need a repository.
 I moved the necessary trait ([`Resolver`]) from `repository` to `core`, and provided a [no-op] implementation for it.
@@ -275,9 +275,9 @@ The result is that I no longer depend on the `repository` crate to have a workin
 
 Neat!
 
-[`Resolver`]: https://github.com/reproto/reproto/blob/master/lib/core/src/resolver.rs
+[`Resolver`]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/src/resolver.rs
 
-[no-op]: https://github.com/reproto/reproto/blob/master/lib/core/src/resolver.rs#L54
+[no-op]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/src/resolver.rs#L54
 
 # Revenge of the Path
 
@@ -323,7 +323,7 @@ I settled for just adding more indirection and isolating the components that nee
 Unfortunate for me, [`chrono` depends on `time`].
 Another platform-specific dependency!
 
-[`derive`]: https://github.com/reproto/reproto/blob/master/lib/derive/
+[`derive`]: https://github.com/reproto/reproto/blob/0356c90c60/lib/derive/
 [`chrono`]: https://crates.io/crates/chrono
 [`chrono` depends on `time`]: https://github.com/chronotope/chrono/blob/master/Cargo.toml#L23
 
