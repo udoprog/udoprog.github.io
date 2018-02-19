@@ -16,7 +16,7 @@ I will also provide a number of suggestions for how things might be improved for
 A big chunk of the `wasm` story on Rust currently relies on [`stdweb`].
 
 Needless to say, this project is _incredible_.
-It makes it smooth to build Rust applications that integrates with a browser context (and vice-versa).
+`stdweb` makes it smooth to build Rust applications that integrates with a browser.
 
 There's a ton of things that can be said about that project, but first I want to focus on the porting efforts of [`reproto`].
 
@@ -27,8 +27,7 @@ There's a ton of things that can be said about that project, but first I want to
 
 The best way to port a library is to compile it.
 
-For Rust it's as simple as installing [`cargo-web`] and setting up a simple project with all your
-dependencies.
+For Rust it's as simple as installing [`cargo-web`] and setting up a project with all your dependencies.
 
 All it really needs is a [`Cargo.toml`] declaring your dependencies, and a [`src/main.rs`] with `extern`
 declarations for everything you want compiled.
@@ -60,7 +59,7 @@ serde_json = "1"
 serde_derive = "1"
 ```
 
-```
+```rust
 //! src/main.rs
 
 extern crate serde;
@@ -96,7 +95,7 @@ have to type it out all the time:
 default-target = "wasm32-unknown-unknown"
 ```
 
-Now the project should build (or not) simply by running `cargo web build`.
+Now the project should build by running `cargo web build`.
 
 For tracing down where dependencies come from, I relied heavily on [`cargo-tree`].
 
@@ -181,10 +180,8 @@ Interestingly enough, this is something I've touched on in a previous post as a 
 
 [portability concern]: https://udoprog.github.io/rust/2017-11-05/portability-concerns-with-path.html
 
-In essence: paths are not portable because not all platforms have serialization defined for it!
-
-Serialization being missing for a specific platform wouldn't be a big deal if platform-specific
-bits were better tucked away.
+In `rustc-serialize`, paths are not portable because not all platforms have serializers defined for them!
+`impl`s being missing for a specific platform wouldn't be a big deal if platform-specific bits were better tucked away.
 As it stands here, we end up with an incomplete `impl Decodable` which is a compiler error.
 
 If the entire `impl` block was conditional it would simply be overlooked as another missing
