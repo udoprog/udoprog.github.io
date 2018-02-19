@@ -474,5 +474,13 @@ So to leave you, feel free to try out [`reproto`] in your browser using the new 
 
 <https://reproto.github.io>.
 
+**UPDATE #1:**
+Here is the relevant PR in `chrono` to [make `time` an optional dependency].
+Please make your voice heard if this is something you want!
+For `nom`, memchr support for `wasm` [was merged in December], unfortunately that leaves existing libraries behind until they are upgraded.
+
+[make `time` an optional dependency]: https://github.com/chronotope/chrono/pull/137
+[was merged in December]: https://github.com/Geal/nom/issues/633
+
 [`reproto`]: https://github.com/reproto
 [`eval`]: https://github.com/reproto/reproto/tree/master/eval
