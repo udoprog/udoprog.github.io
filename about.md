@@ -7,7 +7,7 @@ permalink: /about/
 
 I'm a Software Developer working at solving hard monitoring problems at Spotify.
 
-I'm building [ReProto](https://github.com/reproto), a new IDL meant to improve how we build and
+I'm building [reproto](https://github.com/reproto), a new IDL meant to improve how we build and
 distributes schemas for JSON-based services.
 There's a compiler written in Rust, you'll love it!
 
