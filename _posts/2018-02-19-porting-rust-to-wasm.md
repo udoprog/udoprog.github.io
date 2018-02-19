@@ -122,7 +122,7 @@ cargo tree
 [`Cargo.toml`]: https://github.com/reproto/reproto/blob/0356c90c60/wasm/Cargo.toml
 [`src/main.rs`]: https://github.com/reproto/reproto/blob/0356c90c60/wasm/src/main.rs
 
-# Big numbers
+## Big numbers
 
 My project is structured into many different modules, each loosely responsible for one aspect of
 the solution.
@@ -279,7 +279,7 @@ Neat!
 
 [no-op]: https://github.com/reproto/reproto/blob/0356c90c60/lib/core/src/resolver.rs#L54
 
-# Revenge of the Path
+## Revenge of the Path
 
 I thought I had seen the last of `Path`. But [`url`] decided to blow up in my face like this:
 

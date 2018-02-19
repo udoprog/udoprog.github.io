@@ -1,15 +1,27 @@
-.container {
-  margin: 0 auto;
-  max-width: 600px;
-  width: 80%;
-}
-
-main,
-footer,
-.nav-container {
+footer, .nav-container {
   margin: 0 auto;
   max-width: 600px;
   width: 90%;
+}
+
+main {
+  .catalogue, .category, .pagination {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    width: 90%;
+  }
+}
+
+main > .post {
+  ul, ol, h1, h2, h3, h4, h5, h6, p, pre > code, blockquote {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    width: 90%;
+  }
 }
 
 .nav {

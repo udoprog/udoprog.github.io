@@ -1,4 +1,8 @@
 .post {
+  & > p > code {
+    white-space: nowrap;
+  }
+
   padding: 3rem 0;
 
   &-info {
@@ -16,7 +20,8 @@
     color: $default-shade;
     font-family: $sans-font;
     font-size: 2rem;
-    margin: 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     text-align: center;
   }
 
@@ -28,7 +33,7 @@
   }
 
   p {
-    margin: 0 0 1rem;
+    margin-bottom: 1rem;
   }
 
   a:hover {
