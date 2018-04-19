@@ -6,24 +6,23 @@ category: programming
 ---
 
 Over the last year I've spent a lot of time working with JSON.
-I suspect most of you reading this have as well.
+I suspect a lot of you reading this have as well.
 
-Whether we like it or not, JSON is currently the lowest common denominator for how we convince
-machines to talk to each other.
-
-In this blog series I will be discussing how we _work_ with JSON.
-The good, and the bad. Mostly the bad honestly, since those make for a more interesting read.
-But I'm also hoping to start a conversation about good practices in how we design schemas to
-maximize interoperability.
+Designing an API that speaks JSON over HTTP affords us interoperability with a myriad of languages
+and environments.
+In a sense, it's currently the lowest common denominator for how we convince machines to talk to
+each other.
 
 <!-- more -->
 
-I will frequently be referencing the work I do in relation to [reproto], since that is what
-brought me down this route in the first place.
-reproto is a system for describing the schema of JSON, so that the valid documents they represent
-can be used efficiently and safely across languages and frameworks.
+In this blog series I will be discussing _how_ we work with JSON.
+We pick it as a format to increase interoperability.
+But if we're not careful we might end up hurting it instead.
 
-First I'd like to examine soundness in relation to JSON.
+A common mistake we do is that we assume that things are portable because "JSON is portable".
+I'll try to show that the way that we _structure_ our data is even more relevant.
+To this end I will be discussing a concept called _soundness_.
+This can also be known as: how not to make the lives of our API consumers miserable.
 
 ## What is soundness?
 
@@ -34,21 +33,30 @@ We need to couple it with _structure_, the way we expect it to be put together.
 
 A _schema_.
 
-So this is how I think about sound JSON:
+So this is what I believe sound JSON looks like:
 
-1. It's Unambiguous &mdash; for any given structure there is one clear way to interpret what it
+1. It is unambiguous &mdash; for any given structure there is one clear way to interpret what it
    means.
-2. It can be processed in an idiomatic way by a majority of systems dealing with JSON.
+2. It can be processed in an idiomatic way by a majority of systems.
+3. The structure makes as few compromises as feasible.
 
-A sound approach would be to use a discriminator field (e.g. `type`) to determine which type of
-structure to expect:
+An example of a sound approach to accomplish polymorphism would be to use a discriminator field
+(e.g. `type`) to discriminate which type of structure to expect:
 
 ```json
 {"type": "eagle", "age": 15}
 {"type": "butterfly", "color": "red"}
 ```
 
-An unsound approach would be to determine it based on the presence of fields. If `age` is present,
+This is called field-based polymorphism, and is widely supported in one form or another across many
+systems.
+
+It is unambiguous, the type is strictly defined by a single, well-known field.
+Because it is widely supported, we get idiomatic implementations for most languages.
+There is one compromise: the `type` field cannot be used for anything other than type
+discrimination.
+
+An _unsound_ approach would be to determine it based on the presence of fields. If `age` is present,
 it's an eagle. If `color` is present, it's a butterfly.
 
 ```json
@@ -56,15 +64,23 @@ it's an eagle. If `color` is present, it's a butterfly.
 {"color": "red"}
 ```
 
-The first approach also fulfills the second.
-It's called field-based polymorphism and is widely supported in one form or another.
+Strictly speaking this is unambigious.
+In [Serde] it would be known as an [untagged enum].
+This does _not_ result in idiomatic implementations across systems! Serde is one of the few
+exceptions I've encountered where this is easy to express.
+There are a number of compromises that have been made: eagle's can never have a _color_, and
+butterflies an _age_.
+This negatively effect future _schema evolution_ &mdash; something I will cover in a future topic.
 
 But I don't use schemas, what does this have to do with me?
 
+[serde]: https://serde.rs
+[untagged enum]: https://serde.rs/enum-representations.html#untagged
+
 ## The implicit schema
 
-Schemas are _always_ present.  Even the following super-simple Python application assumes a
-schema:
+Schemas are always present.
+Even the following super-simple Python application assumes a schema:
 
 ```python
 import sys, json
@@ -79,7 +95,7 @@ python3 app.py <<< '{"name": "George"}'
 My name is: George
 ```
 
-But what happens if we feed it a document without a `name`?
+So what happens if we feed it a document without a `name`?
 
 ```bash
 python3 app.py <<< '{}'
@@ -109,10 +125,11 @@ Traceback (most recent call last):
 TypeError: string indices must be integers
 ```
 
-We can observe that due to the way the application is written, it has an implicit assumption about
-the JSON it accepts as valid.
+As you see, the way the application is written, it has an _implicit_ assumption about the JSON it
+accepts as valid.
+This is the _implicit schema_.
 
-We could write this schema like this:
+In [reproto], we can describe this schema like this:
 
 ```reproto
 type Person {
@@ -121,7 +138,7 @@ type Person {
 }
 ```
 
-But what if the application was written like this instead?
+So what if the application was written like this instead?
 
 ```python
 import sys, json
@@ -129,7 +146,7 @@ d = json.load(sys.stdin)
 print("My name is:", d["name"])
 ```
 
-Now we actually accept anything as a name now without rejecting the input.
+Now we actually accept _anything_ as a name.
 
 ```bash
 python3 test.py <<< '{"name": {"first": "George"}}'
@@ -141,7 +158,7 @@ Or expressed as a schema:
 ```reproto
 type Message {
     /// Name of the person.
-    /// Can be anything really.
+    /// Can be anything.
     name: any;
 }
 ```
@@ -151,31 +168,33 @@ assuming that intent of the programmer is to "make it a string".
 
 But let's take a step back. Is this sound?
 
-[reproto]: https://reproto.github.io
 [duck-typing]: https://en.wikipedia.org/wiki/Duck_typing
 
 ## When do we want our code to fail?
 
-Preferably _never_, but if we have to: in the decoding stage.
+Preferably _never_, but if we have to it would be in the decoding stage.
 
 It's reasonable to design our application so that you can be sure that beyond a given point the
 structure is well-defined.
-
-The decoding stage in the above example would be the line:
+The "decoding stage" in the previous example would be this line:
 
 ```python
 d = json.load(sys.stdin)
 ```
 
-By permitting [opaque structures] to fall through the decoding stage, we expose ourselves to
+This permits [opaque structures] to pass through.
+Python will represent the decoded JSON as a set of dynamically composed dictionaries, values, and
+lists.
+At this stage, if we don't actively verify that we get what we expect, we are exposing ourselves to
 unexpected behaviors.
 
 This is why Python 2 developers adopted the adage "decode early/encode late" in relation to
 unicode.
-Unless you provide some constraints, your problem space becomes so unconstrained that it's almost
+Unless you provide some guarantees, your problem space becomes so unconstrained that it's
 meaningless to reason about.
+Much less guarantee that it is correct.
 
-Let's rewrite our program to fail if we are not receiving well-formed JSON:
+Let's rewrite our program to fail if we are not receiving what we expect to:
 
 ```python
 import sys, json
@@ -201,11 +220,13 @@ validate(d)
 print("My name is: " + d["name"])
 ```
 
-While the above is not particularly pretty, it guarantees that after have called `validate`, `d` is
-well-formed and the rest of the code behaves as expected.
+While the above is not particularly pretty, it guarantees that after we have called `validate`, the
+variable `d` is _well-formed_ and the rest of the code should behave as expected.
 
-In the case we are not receiving the data we expected, we provide at least some diagnostics telling
-us why.
+In the case we are not receiving the data we expect, we try to provide immediate diagnostics
+telling us _why_.
+`Exception: "name: field is not present"` with a stack trace relevant to the decoding stage is much
+better than a `KeyError: 'name'` raised the first time we try to use it.
 
 If we go one step further, we might wrap our data in a class:
 
@@ -236,17 +257,10 @@ print("My name is: " + d.name)
 ```
 
 Now we can provide stronger guarantees: any instance of Person _must_ be well-formed.
-We've also coupled our decoding method with the class as a static method.
 
-As a side-effect, invalid property access is also more well-defined!
-If we try to access unknown properties, we would raise an `AttributeError`.
-
-```python
-p = Person("John")
-print(p.age)
-```
-
-Would give:
+We also get a number of convenient side-effects.
+IDEs can inspect the class and provide completions.
+Attempting to access an illegal property gives us a helpful `AttributeError`:
 
 ```
 Traceback (most recent call last):
@@ -255,15 +269,16 @@ Traceback (most recent call last):
 AttributeError: Person instance has no attribute 'age'
 ```
 
-Our application now enforces a _schema_.
-Any data we process here, can be safely interchanged with other systems that follows the same
-schema.
+This is a result of us taking an idiomatic approach to how we expose our Python application to
+Data, model it as a class instead of as a dynamically structured dictionary.
+We play along better with the existing ecosystem.
+
+Our application now actively enforces a _schema_, and as a result any data we process here can be
+safely interchanged with other systems that follows it.
 
 [opaque structures]: https://en.wikipedia.org/wiki/Opaque_data_type
 
 ## How does this look like in Java?
-
-Java is statically typed.
 
 Dealing with raw JSON in Java is exceedingly unergonomic.
 A more common approach is to employ a strategy known as [data binding].
@@ -304,9 +319,11 @@ public class Main {
 In order for these two systems to communicate - one in Python, the other in Java - we need a way to
 describe our _schema_ that can be implemented in both languages.
 
-Even though we never touched on a schema in any of the previous code, it still has one.
+This is where [reproto] comes in.
+In it we can describe the structure of our JSON in a language-neutral way, and generate
+_idiomatic_, safe code for all of our targets.
 
-In reproto, a `Person` would be expressed like this:
+The `Person` reference above would simply look like this:
 
 ```reproto
 type Person {
@@ -318,16 +335,11 @@ type Person {
 
 ## Not all solutions are born equal
 
-Figuring out how to only permit legal JSON according to a schema is something I had to do, and is
-a recurring problem with the code generation for reproto.
+In future posts I'll be covering a number design patterns I've encountered over my career and
+discuss how _sound_ they are.
 
-In future posts I will be detailing some of the challenges I encountered with certain languages and
-framework combinations.
-I'll also be highlighting the ones I believe are excellent, and why.
+This topic came into focus for me because of my work with [reproto].
+I'm trying to come up with a better way for defining and sharing JSON schemas.
+It's a _really big_ task, and I would love your help!
 
-I will kick off this series, at the end of this post, by stating what I believe soundness is with
-relation to JSON:
-
- 1. Any given JSON when paired with a schema can be unambiguously decoded or rejected.
- 2. Any given JSON can be processed in a language, without sacrificing guarantees provided _by_
-    that language.
+[reproto]: https://reproto.github.io
