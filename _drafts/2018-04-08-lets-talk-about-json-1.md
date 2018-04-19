@@ -262,19 +262,17 @@ type Person {
 
 [You can try it out here](https://reproto.github.io).
 
-## Not all frameworks are born equal
+## Not all solutions are born equal
 
-The process of building backends capable of generating these kind of language bindings has been
-an interesting journey.
+Figuring out how to only permit legal JSON according to a schema is something I had to do, and is
+a recurring problem with the code generation for reproto.
 
-There is such wide range of solutions available.
-In future posts I will be discussing my favorite examples of languages and libraries that _fall
-a bit short_.
+In future posts I will be detailing some of the challenges I encountered with certain languages and
+framework combinations.
+I'll also be highlighting the ones I believe are excellent, and why.
 
-The intent is not to criticize the developers of these solutions, but to open up a discussion about
-what soundness means in the context of using JSON as an interchange format.
-
-I will start by stating what I believe soundness is:
+I will kick off this series, at the end of this post, by stating what I believe soundness is with
+relation to JSON:
 
  1. Any given JSON when paired with a schema can be unambiguously decoded or rejected.
  2. Any given JSON can be processed in a language, without sacrificing guarantees provided _by_
