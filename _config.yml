@@ -1,9 +1,12 @@
 # Setup
-title: Dark Poole
-url: https://getpoole.com
-paginate: 1
+title: udoprog
+url: https://udoprog.github.io
+paginate: 5
 baseurl: ""
-permalink: pretty
+permalink: /:categories/:year-:month-:day/:title.html
+
+description: >
+  A Rust enthusiast, working freelance to solve interesting problems.
 
 # Gems
 plugins:
@@ -32,12 +35,17 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Mark Otto
-  url: https://twitter.com/mdo
-  email: markdotto@gmail.com
+  name: John-John Tedro
+  url: https://udoprog.github.io
+  email: udoprog@tedro.se
 
 # Custom vars
 version: 3.0.0
+
+github:
+  user: udoprog
+  repo: udoprog/udoprog.github.io
+  url: https://github.com/udoprog/udoprog.github.io
 
 # Navbar page list
 nav:

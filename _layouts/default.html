@@ -12,6 +12,7 @@
             {% for nav in site.nav %}
             <small><a href="{{ nav.url }}">{{ nav.title }}</a></small>
             {% endfor %}
+            <small>{% include icon-github.html username=site.github.user %}</small>
           </nav>
         </h3>
       </header>
