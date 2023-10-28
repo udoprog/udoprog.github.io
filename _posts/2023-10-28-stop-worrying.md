@@ -3,6 +3,7 @@ layout: post
 title: How I learned to stop worrying and love byte ordering
 date: 2023-10-28 06:00 +0200
 category: rust
+tags: musli zerocopy
 ---
 
 In the [last post] I announced [`musli-zerocopy`]. In this one I'll discuss one

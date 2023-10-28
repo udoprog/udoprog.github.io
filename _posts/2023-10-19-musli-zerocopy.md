@@ -3,6 +3,7 @@ layout: post
 title: A fresh look on incremental zero copy serialization
 date: 2023-10-19 08:00 +0200
 category: rust
+tags: musli
 ---
 
 It's been a few months since I released Müsli to the world. An [experimental
