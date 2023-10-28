@@ -488,7 +488,7 @@ zero cost if the demanded byte order matches the current one. We have all [the
 necessary tools] to muck about with the bytes of a type. Any native-to-native
 swapping be they generic or not should result in a simple move, like this:
 
-[wide set of tools]: https://docs.rs/musli-zerocopy/latest/musli_zerocopy/endian/index.html
+[the necessary tools]: https://docs.rs/musli-zerocopy/latest/musli_zerocopy/endian/index.html
 
 ```rust
 use musli_zerocopy::{endian, ZeroCopy};
