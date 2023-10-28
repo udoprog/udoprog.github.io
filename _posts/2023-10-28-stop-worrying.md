@@ -38,7 +38,7 @@ likely little endian.
 
 <br>
 
-The first version of [`musli-zerocopy`] ignores byte orders. You'd be using the
+The first version of [`musli-zerocopy`] ignores byte ordering. You'd be using the
 byte order that is native to the platform you're on. This is not much of a
 problem for simple structures, since primitive fields in simple structs like
 `u32` natively can represent data in any byte order. Rust's `std` library comes
@@ -110,8 +110,6 @@ Overview:
 * [**Option #3: Why not both?**](#option-3-why-not-both)
 * [**Option #4: Squint hard enough and everything looks like an optimization**](#option-4-squint-hard-enough-and-everything-looks-like-an-optimization)
 * [**Detour: A missed enum optimization**](#detour-a-missed-enum-optimization)
-
-<br>
 
 ## Why even bother?
 
@@ -196,8 +194,6 @@ faster applications that use less power.
 So how do we accomplish this? In the next four sections I'll cover some of the
 available options.
 
-<br>
-
 ## Option #1: Don't bother
 
 The documentation in [`musli-zerocopy` (Reading data)] mentions that there are some pieces of
@@ -269,8 +265,6 @@ This is a nice alternative in case your application can download a platform
 suitable archive directly. Its DNA can then be represented as a target string,
 like `dictionary-jp-64-be.bin`.
 
-<br>
-
 ## Option #2: Care a lot
 
 This option is a bit more intrusive, but allows for an archive to be used even
@@ -334,14 +328,12 @@ let data: &Data = buf.load_at(0)?;
 assert_eq!(endian::from_le(data.age), 35);
 ```
 
-<br>
-
 ## Option #3: Why not both?
 
 Maybe the most interesting alternative of them all. Store the archive in
 multiple orderings and read the one which matches your platform.
 
-🤯
+<span class="big">🤯</span>
 
 In musli we can do this by storing two references in the header, and make use of
 the `pick!` macro to decide which one to use. Due to the default value of
@@ -667,8 +659,6 @@ differs from `Native` ensuring that native-to-native swapping doesn't do the
 extra work dealing with each unique variant individually.
 
 [I've introduced a method]: https://github.com/udoprog/musli/pull/48
-
-<br>
 
 ## Conclusion
 
