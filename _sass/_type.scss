@@ -3,10 +3,8 @@
 // Headings, body text, lists, and other misc typographic elements.
 
 h1, h2, h3, h4, h5, h6 {
-  padding-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: var(--section-margin-top);
+  margin-bottom: var(--section-margin);
   font-weight: 600;
   line-height: 1.25;
   color: var(--heading-color);
@@ -29,8 +27,8 @@ h4, h5, h6 {
 }
 
 p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: var(--paragraph-margin);
+  margin-bottom: var(--paragraph-margin);
 }
 
 ul, ol, dl {
@@ -67,7 +65,7 @@ abbr {
 
 blockquote {
   padding: .5rem 1rem;
-  margin: .8rem 0;
+  margin: var(--paragraph-margin) 0;
   color: var(--gray-500);
   border-left: .25rem solid var(--border-color);
 
