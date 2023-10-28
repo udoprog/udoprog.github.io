@@ -8,11 +8,17 @@
   margin-bottom: var(--spacer-3);
 }
 
+.site-title {
+  .flair {
+    color: var(--flair-color);
+  }
+}
+
 .masthead-title {
+  font-size: 120%;
   margin-bottom: 0;
 
   a {
-    color: inherit;
     text-decoration: none;
   }
 
