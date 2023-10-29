@@ -15,20 +15,7 @@
   --dark-poole-link-hover: #fff;
 
   --flair-color: #c53d3d;
-  --red: #fa5252;
-  --pink: #e64980;
-  --grape: #be4bdb;
-  --purple: #7950f2;
-  --indigo: #4c6ef5;
-  --blue: #228be6;
-  --cyan: #15aabf;
-  --teal: #12b886;
-  --green: #40c057;
   --yellow: #fab005;
-  --orange: #fd7e14;
-
-  --blue-300: #74c0fc;
-  --blue-400: #4dabf7;
   --yellow-100: #fff3bf;
 
   --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -39,7 +26,7 @@
   --body-color: var(--gray-700);
   --body-bg: #fff;
 
-  --link-color: var(--blue);
+  --link-color: #74c0fc;
   --link-hover-color: #1c7ed6;
 
   --heading-color: var(--gray-900);
@@ -49,8 +36,8 @@
 
   --code-font: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  --code-color: var(--grape);
-  --code-bg: var(--gray-000);
+  --code-color: var(--dark-poole-002);
+  --code-bg: var(--gray-900);
 
   --spacer: 1rem;
   --spacer-2: calc(var(--spacer) * 1.5);
@@ -59,31 +46,26 @@
   --paragraph-margin: 1rem;
   --section-margin: 1.5rem;
   --section-margin-top: 3rem;
+
+  --blockquote-color: var(--gray-700);
 }
 
-@media (prefers-color-scheme: dark) {
+// Light pool theme.
+@media (prefers-color-scheme: light) {
   :root {
-    --body-color: var(--gray-300);
-    --body-bg: var(--gray-800);
-
-    --heading-color: #fff;
-
-    --link-color: var(--blue-300);
-    --link-hover-color: var(--blue-400);
-
-    --border-color: rgba(255, 255, 255, 0.15);
-
-    --code-bg: var(--gray-900);
   }
 }
 
 // Dark Poole theme
-[data-theme="dark-poole"] {
-  --body-color: var(--dark-poole-002);
-  --body-bg: var(--dark-poole-001);
-  --heading-color: var(--dark-poole-002);
-  --link-color: var(--dark-poole-link-color);
-  --link-hover-color: var(--dark-poole-link-hover);
-  --border-color: rgba(255, 255, 255, 0.15);
-  --code-bg: var(--gray-900);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-color: var(--dark-poole-002);
+    --body-bg: var(--dark-poole-001);
+    --heading-color: var(--dark-poole-002);
+    --link-color: var(--dark-poole-link-color);
+    --link-hover-color: var(--dark-poole-link-hover);
+    --border-color: rgba(255, 255, 255, 0.15);
+    --blockquote-color: var(--gray-500);
+    --code-bg: var(--gray-900);
+  }
 }

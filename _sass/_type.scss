@@ -64,9 +64,9 @@ abbr {
 }
 
 blockquote {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   margin: var(--paragraph-margin) 0;
-  color: var(--gray-500);
+  color: var(--blockquote-color);
   border-left: .25rem solid var(--border-color);
 
   & > *:first-child {
@@ -77,7 +77,7 @@ blockquote {
     margin-bottom: 0;
   }
 
-  @media (min-width: 30em) {
+  @media (min-width: 45em) {
     padding-right: 5rem;
     padding-left: 1.25rem;
   }
