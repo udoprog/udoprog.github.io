@@ -1,0 +1,1104 @@
+<html>
+<head>
+<style>
+#traces {
+    width: 100%;
+}
+
+#traces > .lock .lock-title {
+    font-family: helvetica;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#traces > .lock {
+    border: 1px solid #808080;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+#traces > .lock > .section {
+    background-color: #ffff80;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.section {
+    height: 10px;
+    min-width: 10px;
+}
+
+.section.critical {
+    background-color: #808080;
+}
+
+.section.read {
+    background-color: #80ff80;
+}
+
+.section.write {
+    background-color: #ff8080;
+}
+
+.section.lock {
+    background-color: #ff80ff;
+}
+</style>
+</head>
+<body>
+<div id="traces">
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::instance::Surface&gt&gt; (index: 5) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 0%;" title="critical (start: 9000ns, end: 11600ns, duration: 2.6µs)">
+<div class="section read" style="width: 15%; margin-left: 46%;" title="read (start: 1200ns, end: 1600ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 20%;" title="critical (start: 1283000ns, end: 1284100ns, duration: 1.1µs)">
+<div class="section read" style="width: 27%; margin-left: 27%;" title="read (start: 300ns, end: 600ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::device::resource::Device&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 9) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 150600ns, end: 156500ns, duration: 5.9µs)">
+<div class="section read" style="width: 5%; margin-left: 83%;" title="read (start: 4900ns, end: 5200ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::device::queue::Queue&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 11) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 158100ns, end: 159000ns, duration: 900ns)">
+<div class="section read" style="width: 22%; margin-left: 33%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 713900ns, end: 714800ns, duration: 900ns)">
+<div class="section read" style="width: 22%; margin-left: 33%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 20%;" title="critical (start: 1286800ns, end: 1287700ns, duration: 900ns)">
+<div class="section read" style="width: 33%; margin-left: 22%;" title="read (start: 200ns, end: 500ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::binding_model::BindGroup&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 19) (thread: 0)</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 211600ns, end: 660900ns, duration: 449.3µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::command::CommandBuffer&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 21) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 3%;" title="critical (start: 165500ns, end: 167700ns, duration: 2.2µs)">
+<div class="section write" style="width: 9%; margin-left: 14%;" title="write (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 3%;" title="critical (start: 197000ns, end: 199600ns, duration: 2.6µs)">
+<div class="section read" style="width: 12%; margin-left: 15%;" title="read (start: 400ns, end: 700ns, duration: 300ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 10%;" title="critical (start: 662000ns, end: 663200ns, duration: 1.2µs)">
+<div class="section read" style="width: 33%; margin-left: 25%;" title="read (start: 300ns, end: 700ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 707500ns, end: 708400ns, duration: 900ns)">
+<div class="section read" style="width: 33%; margin-left: 33%;" title="read (start: 300ns, end: 600ns, duration: 300ns)">
+</div>
+</div>
+<div class="section critical" style="width: 3%; margin-left: 11%;" title="critical (start: 717500ns, end: 902400ns, duration: 184.9µs)">
+<div class="section write" style="width: 0%; margin-left: 0%;" title="write (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::command::bundle::RenderBundle&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 23) (thread: 0)</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 210800ns, end: 661100ns, duration: 450.3µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::pipeline::RenderPipeline&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 25) (thread: 0)</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 212500ns, end: 660800ns, duration: 448.3µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::resource::QuerySet&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 29) (thread: 0)</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 213300ns, end: 660500ns, duration: 447.2µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 400ns, end: 500ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 1%; margin-left: 10%;" title="critical (start: 664400ns, end: 698200ns, duration: 33.8µs)">
+<div class="section read" style="width: 1%; margin-left: 1%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 31) (thread: 0)</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 214200ns, end: 660400ns, duration: 446.2µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::resource::Texture&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 35) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 1%;" title="critical (start: 91300ns, end: 94100ns, duration: 2.8µs)">
+<div class="section write" style="width: 14%; margin-left: 7%;" title="write (start: 200ns, end: 600ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 103900ns, end: 124800ns, duration: 20.9µs)">
+<div class="section read" style="width: 1%; margin-left: 96%;" title="read (start: 20100ns, end: 20400ns, duration: 300ns)">
+</div>
+</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 214900ns, end: 660200ns, duration: 445.3µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 723000ns, end: 726200ns, duration: 3.2µs)">
+<div class="section read" style="width: 6%; margin-left: 6%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 14%;" title="critical (start: 906000ns, end: 909200ns, duration: 3.2µs)">
+<div class="section read" style="width: 13%; margin-left: 9%;" title="read (start: 300ns, end: 700ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 20%;" title="critical (start: 1291600ns, end: 1292600ns, duration: 1µs)">
+<div class="section write" style="width: 20%; margin-left: 30%;" title="write (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::storage::Storage&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 37) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 140800ns, end: 142800ns, duration: 2µs)">
+<div class="section write" style="width: 10%; margin-left: 20%;" title="write (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 215500ns, end: 659600ns, duration: 444.1µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;core::option::Option&lt;wgpu_core::id::Id&lt;wgpu_core::id::markers::Queue&gt&gt&gt; (index: 109) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 157000ns, end: 159200ns, duration: 2.2µs)">
+<div class="section read" style="width: 18%; margin-left: 14%;" title="read (start: 300ns, end: 700ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 20%;" title="critical (start: 1285500ns, end: 1286400ns, duration: 900ns)">
+<div class="section read" style="width: 33%; margin-left: 44%;" title="read (start: 400ns, end: 700ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;core::option::Option&lt;wgpu_hal::vulkan::Fence&gt&gt; (index: 112) (thread: 0)</div>
+<div class="section critical" style="width: 9%; margin-left: 11%;" title="critical (start: 715500ns, end: 1277700ns, duration: 562.2µs)">
+<div class="section write" style="width: 0%; margin-left: 0%;" title="write (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;()&gt; (index: 113) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 125300ns, end: 126100ns, duration: 800ns)">
+<div class="section read" style="width: 25%; margin-left: 38%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 127300ns, end: 140200ns, duration: 12.9µs)">
+<div class="section read" style="width: 2%; margin-left: 2%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 8%; margin-left: 3%;" title="critical (start: 200200ns, end: 704100ns, duration: 503.9µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 9%; margin-left: 11%;" title="critical (start: 716600ns, end: 1276600ns, duration: 560µs)">
+<div class="section read" style="width: 0%; margin-left: 0%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 80%; margin-left: 20%;" title="critical (start: 1292900ns, end: 6543500ns, duration: 5.2506ms)">
+<div class="section write" style="width: 0%; margin-left: 0%;" title="write (start: 300ns, end: 1800ns, duration: 1.5µs)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 124) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 5%;" title="critical (start: 357500ns, end: 359200ns, duration: 1.7µs)">
+<div class="section read" style="width: 24%; margin-left: 18%;" title="read (start: 300ns, end: 700ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 448100ns, end: 448900ns, duration: 800ns)">
+<div class="section read" style="width: 25%; margin-left: 25%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 503700ns, end: 505000ns, duration: 1.3µs)">
+<div class="section read" style="width: 23%; margin-left: 23%;" title="read (start: 300ns, end: 600ns, duration: 300ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 617600ns, end: 618600ns, duration: 1µs)">
+<div class="section read" style="width: 30%; margin-left: 20%;" title="read (start: 200ns, end: 500ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 128) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 429300ns, end: 431000ns, duration: 1.7µs)">
+<div class="section read" style="width: 18%; margin-left: 18%;" title="read (start: 300ns, end: 600ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 137) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 621100ns, end: 622700ns, duration: 1.6µs)">
+<div class="section read" style="width: 19%; margin-left: 13%;" title="read (start: 200ns, end: 500ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 141) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 10%;" title="critical (start: 623600ns, end: 624300ns, duration: 700ns)">
+<div class="section read" style="width: 29%; margin-left: 29%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 149) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 10%;" title="critical (start: 631300ns, end: 632500ns, duration: 1.2µs)">
+<div class="section read" style="width: 17%; margin-left: 25%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 153) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 10%;" title="critical (start: 635400ns, end: 636200ns, duration: 800ns)">
+<div class="section read" style="width: 25%; margin-left: 25%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 161) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 505300ns, end: 505900ns, duration: 600ns)">
+<div class="section read" style="width: 33%; margin-left: 33%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 169) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 449200ns, end: 449800ns, duration: 600ns)">
+<div class="section read" style="width: 33%; margin-left: 33%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 177) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 5%;" title="critical (start: 359700ns, end: 360300ns, duration: 600ns)">
+<div class="section read" style="width: 17%; margin-left: 33%;" title="read (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 189) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 3%;" title="critical (start: 224400ns, end: 226700ns, duration: 2.3µs)">
+<div class="section read" style="width: 9%; margin-left: 13%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 195) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 512700ns, end: 521600ns, duration: 8.9µs)">
+<div class="section read" style="width: 3%; margin-left: 91%;" title="read (start: 8100ns, end: 8400ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 203) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 527700ns, end: 528900ns, duration: 1.2µs)">
+<div class="section read" style="width: 17%; margin-left: 25%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 211) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 532400ns, end: 533200ns, duration: 800ns)">
+<div class="section read" style="width: 13%; margin-left: 38%;" title="read (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 220) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 546400ns, end: 562700ns, duration: 16.3µs)">
+<div class="section read" style="width: 96%; margin-left: 1%;" title="read (start: 200ns, end: 15800ns, duration: 15.6µs)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 228) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 568800ns, end: 571200ns, duration: 2.4µs)">
+<div class="section read" style="width: 8%; margin-left: 13%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 236) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 574000ns, end: 574900ns, duration: 900ns)">
+<div class="section read" style="width: 22%; margin-left: 22%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 245) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 585500ns, end: 586300ns, duration: 800ns)">
+<div class="section read" style="width: 25%; margin-left: 25%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 253) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 591300ns, end: 592300ns, duration: 1µs)">
+<div class="section read" style="width: 10%; margin-left: 30%;" title="read (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 261) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 594600ns, end: 595400ns, duration: 800ns)">
+<div class="section read" style="width: 25%; margin-left: 25%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 297) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 6%;" title="critical (start: 361000ns, end: 362600ns, duration: 1.6µs)">
+<div class="section read" style="width: 13%; margin-left: 13%;" title="read (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 306) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 6%;" title="critical (start: 377300ns, end: 381000ns, duration: 3.7µs)">
+<div class="section read" style="width: 62%; margin-left: 8%;" title="read (start: 300ns, end: 2600ns, duration: 2.3µs)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 327) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 439500ns, end: 440400ns, duration: 900ns)">
+<div class="section read" style="width: 11%; margin-left: 33%;" title="read (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::InitTracker&lt;u64&gt&gt; (index: 335) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 434000ns, end: 435300ns, duration: 1.3µs)">
+<div class="section read" style="width: 15%; margin-left: 23%;" title="read (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 359) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 459000ns, end: 460200ns, duration: 1.2µs)">
+<div class="section read" style="width: 8%; margin-left: 25%;" title="read (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::resource::TextureClearMode&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 2188) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1257000ns, end: 1260100ns, duration: 3.1µs)">
+<div class="section write" style="width: 13%; margin-left: 13%;" title="write (start: 400ns, end: 800ns, duration: 400ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">RwLock&lt;wgpu_core::init_tracker::texture::TextureInitTracker&gt; (index: 2196) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 4%;" title="critical (start: 232100ns, end: 247100ns, duration: 15µs)">
+<div class="section read" style="width: 85%; margin-left: 2%;" title="read (start: 300ns, end: 13100ns, duration: 12.8µs)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 13%;" title="critical (start: 835900ns, end: 840400ns, duration: 4.5µs)">
+<div class="section write" style="width: 9%; margin-left: 4%;" title="write (start: 200ns, end: 600ns, duration: 400ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::identity::IdentityValues&gt; (index: 20) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 149300ns, end: 150100ns, duration: 800ns)">
+<div class="section lock" style="width: 25%; margin-left: 38%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 13%;" title="critical (start: 824200ns, end: 825000ns, duration: 800ns)">
+<div class="section lock" style="width: 25%; margin-left: 25%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::identity::IdentityValues&gt; (index: 32) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1193200ns, end: 1194100ns, duration: 900ns)">
+<div class="section lock" style="width: 11%; margin-left: 33%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1199000ns, end: 1199600ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 50%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1206200ns, end: 1206700ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1210200ns, end: 1210700ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::identity::IdentityValues&gt; (index: 34) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 0%;" title="critical (start: 0ns, end: 8500ns, duration: 8.5µs)">
+<div class="section lock" style="width: 5%; margin-left: 88%;" title="lock (start: 7500ns, end: 7900ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1261900ns, end: 1262600ns, duration: 700ns)">
+<div class="section lock" style="width: 14%; margin-left: 43%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::identity::IdentityValues&gt; (index: 36) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 102600ns, end: 103500ns, duration: 900ns)">
+<div class="section lock" style="width: 22%; margin-left: 33%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1264500ns, end: 1265200ns, duration: 700ns)">
+<div class="section lock" style="width: 29%; margin-left: 43%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_core::present::Presentation&gt&gt; (index: 108) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 0%;" title="critical (start: 12300ns, end: 15100ns, duration: 2.8µs)">
+<div class="section lock" style="width: 4%; margin-left: 39%;" title="lock (start: 1100ns, end: 1200ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 1%;" title="critical (start: 83300ns, end: 97900ns, duration: 14.6µs)">
+<div class="section lock" style="width: 2%; margin-left: 12%;" title="lock (start: 1800ns, end: 2100ns, duration: 300ns)">
+</div>
+</div>
+<div class="section critical" style="width: 80%; margin-left: 20%;" title="critical (start: 1284500ns, end: 6545100ns, duration: 5.2606ms)">
+<div class="section lock" style="width: 0%; margin-left: 0%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_core::device::CommandAllocator&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 111) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 159600ns, end: 160700ns, duration: 1.1µs)">
+<div class="section lock" style="width: 18%; margin-left: 18%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 15%;" title="critical (start: 990900ns, end: 992500ns, duration: 1.6µs)">
+<div class="section lock" style="width: 25%; margin-left: 38%;" title="lock (start: 600ns, end: 1000ns, duration: 400ns)">
+</div>
+</div>
+<div class="section critical" style="width: 3%; margin-left: 15%;" title="critical (start: 1009800ns, end: 1212600ns, duration: 202.8µs)">
+<div class="section lock" style="width: 0%; margin-left: 0%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::track::Tracker&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 114) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 1%;" title="critical (start: 94800ns, end: 97600ns, duration: 2.8µs)">
+<div class="section lock" style="width: 7%; margin-left: 7%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 145900ns, end: 147200ns, duration: 1.3µs)">
+<div class="section lock" style="width: 8%; margin-left: 23%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 1%; margin-left: 13%;" title="critical (start: 832900ns, end: 896700ns, duration: 63.8µs)">
+<div class="section lock" style="width: 0%; margin-left: 1%;" title="lock (start: 500ns, end: 700ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1228600ns, end: 1230800ns, duration: 2.2µs)">
+<div class="section lock" style="width: 9%; margin-left: 14%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1231200ns, end: 1232600ns, duration: 1.4µs)">
+<div class="section lock" style="width: 14%; margin-left: 7%;" title="lock (start: 100ns, end: 300ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1233000ns, end: 1234500ns, duration: 1.5µs)">
+<div class="section lock" style="width: 7%; margin-left: 13%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1234800ns, end: 1236300ns, duration: 1.5µs)">
+<div class="section lock" style="width: 13%; margin-left: 13%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1239200ns, end: 1240200ns, duration: 1µs)">
+<div class="section lock" style="width: 20%; margin-left: 20%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1240500ns, end: 1243700ns, duration: 3.2µs)">
+<div class="section lock" style="width: 6%; margin-left: 9%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1244100ns, end: 1265800ns, duration: 21.7µs)">
+<div class="section lock" style="width: 1%; margin-left: 1%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1266100ns, end: 1268800ns, duration: 2.7µs)">
+<div class="section lock" style="width: 4%; margin-left: 11%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1269200ns, end: 1269900ns, duration: 700ns)">
+<div class="section lock" style="width: 14%; margin-left: 29%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 20%;" title="critical (start: 1289100ns, end: 1291200ns, duration: 2.1µs)">
+<div class="section lock" style="width: 10%; margin-left: 10%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::device::life::LifetimeTracker&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 115) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 15%;" title="critical (start: 993000ns, end: 1000200ns, duration: 7.2µs)">
+<div class="section lock" style="width: 3%; margin-left: 3%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 4%; margin-left: 15%;" title="critical (start: 1009100ns, end: 1272800ns, duration: 263.7µs)">
+<div class="section lock" style="width: 0%; margin-left: 0%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1273500ns, end: 1275100ns, duration: 1.6µs)">
+<div class="section lock" style="width: 13%; margin-left: 13%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_core::device::life::ResourceMaps&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 116) (thread: 0)</div>
+<div class="section critical" style="width: 3%; margin-left: 11%;" title="critical (start: 718200ns, end: 902100ns, duration: 183.9µs)">
+<div class="section lock" style="width: 0%; margin-left: 0%;" title="lock (start: 700ns, end: 900ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1213000ns, end: 1214000ns, duration: 1µs)">
+<div class="section lock" style="width: 20%; margin-left: 20%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_core::device::trace::Trace&gt&gt; (index: 118) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 0%;" title="critical (start: 15400ns, end: 16100ns, duration: 700ns)">
+<div class="section lock" style="width: 29%; margin-left: 57%;" title="lock (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 126400ns, end: 127000ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 161000ns, end: 165100ns, duration: 4.1µs)">
+<div class="section lock" style="width: 5%; margin-left: 5%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 727200ns, end: 727900ns, duration: 700ns)">
+<div class="section lock" style="width: 14%; margin-left: 57%;" title="lock (start: 400ns, end: 500ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 19%;" title="critical (start: 1249100ns, end: 1249700ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 50%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 20%;" title="critical (start: 1288000ns, end: 1288700ns, duration: 700ns)">
+<div class="section lock" style="width: 29%; margin-left: 43%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_core::device::queue::PendingWrites&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 119) (thread: 0)</div>
+<div class="section critical" style="width: 6%; margin-left: 14%;" title="critical (start: 903200ns, end: 1276100ns, duration: 372.9µs)">
+<div class="section lock" style="width: 0%; margin-left: 1%;" title="lock (start: 2100ns, end: 2400ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 126) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 733000ns, end: 733800ns, duration: 800ns)">
+<div class="section lock" style="width: 25%; margin-left: 50%;" title="lock (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 133) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 426100ns, end: 426700ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 134) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 426900ns, end: 428600ns, duration: 1.7µs)">
+<div class="section lock" style="width: 12%; margin-left: 12%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 135) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 758400ns, end: 760500ns, duration: 2.1µs)">
+<div class="section lock" style="width: 10%; margin-left: 14%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 136) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 762000ns, end: 763900ns, duration: 1.9µs)">
+<div class="section lock" style="width: 5%; margin-left: 21%;" title="lock (start: 400ns, end: 500ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 145) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 6%;" title="critical (start: 421500ns, end: 422500ns, duration: 1µs)">
+<div class="section lock" style="width: 20%; margin-left: 50%;" title="lock (start: 500ns, end: 700ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 146) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 6%;" title="critical (start: 423000ns, end: 423600ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 33%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 147) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 765200ns, end: 765800ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 33%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 148) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 766200ns, end: 766700ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 151) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 734300ns, end: 734700ns, duration: 400ns)">
+<div class="section lock" style="width: 25%; margin-left: 50%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 155) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 735000ns, end: 735500ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 159) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 735900ns, end: 736300ns, duration: 400ns)">
+<div class="section lock" style="width: 25%; margin-left: 50%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 163) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 736600ns, end: 737100ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 165) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 499500ns, end: 501800ns, duration: 2.3µs)">
+<div class="section lock" style="width: 13%; margin-left: 26%;" title="lock (start: 600ns, end: 900ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 166) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 502300ns, end: 503000ns, duration: 700ns)">
+<div class="section lock" style="width: 14%; margin-left: 43%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 167) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 767100ns, end: 767700ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 168) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 768000ns, end: 768500ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 171) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 737500ns, end: 738000ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 173) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 443400ns, end: 444800ns, duration: 1.4µs)">
+<div class="section lock" style="width: 7%; margin-left: 21%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 174) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 445100ns, end: 447700ns, duration: 2.6µs)">
+<div class="section lock" style="width: 77%; margin-left: 12%;" title="lock (start: 300ns, end: 2300ns, duration: 2µs)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 175) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 768900ns, end: 769400ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 176) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 769700ns, end: 770300ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 179) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 738300ns, end: 738800ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 197) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 739100ns, end: 739700ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 50%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 199) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 510400ns, end: 511500ns, duration: 1.1µs)">
+<div class="section lock" style="width: 18%; margin-left: 27%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 200) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 511800ns, end: 512300ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 201) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 770700ns, end: 771200ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 202) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 771600ns, end: 772100ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 205) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 740000ns, end: 741600ns, duration: 1.6µs)">
+<div class="section lock" style="width: 13%; margin-left: 81%;" title="lock (start: 1300ns, end: 1500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 213) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 742000ns, end: 742700ns, duration: 700ns)">
+<div class="section lock" style="width: 14%; margin-left: 57%;" title="lock (start: 400ns, end: 500ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 222) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 743100ns, end: 743600ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 60%;" title="lock (start: 300ns, end: 400ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 224) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 543600ns, end: 544800ns, duration: 1.2µs)">
+<div class="section lock" style="width: 17%; margin-left: 25%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 225) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 8%;" title="critical (start: 545200ns, end: 545700ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 226) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 772600ns, end: 773100ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 227) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 773400ns, end: 773900ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 230) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 744000ns, end: 744500ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 238) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 745000ns, end: 745400ns, duration: 400ns)">
+<div class="section lock" style="width: 25%; margin-left: 50%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 247) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 745800ns, end: 746300ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 249) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 582800ns, end: 584000ns, duration: 1.2µs)">
+<div class="section lock" style="width: 17%; margin-left: 25%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 250) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 584400ns, end: 585000ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 33%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 251) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 774300ns, end: 774800ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 252) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 775100ns, end: 775700ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 255) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 746600ns, end: 747100ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 263) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 747800ns, end: 748200ns, duration: 400ns)">
+<div class="section lock" style="width: 25%; margin-left: 50%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 302) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 5%;" title="critical (start: 350200ns, end: 352900ns, duration: 2.7µs)">
+<div class="section lock" style="width: 11%; margin-left: 22%;" title="lock (start: 600ns, end: 900ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 303) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 5%;" title="critical (start: 353500ns, end: 356100ns, duration: 2.6µs)">
+<div class="section lock" style="width: 8%; margin-left: 15%;" title="lock (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 304) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 776100ns, end: 777000ns, duration: 900ns)">
+<div class="section lock" style="width: 11%; margin-left: 22%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 305) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 777400ns, end: 802700ns, duration: 25.3µs)">
+<div class="section lock" style="width: 94%; margin-left: 1%;" title="lock (start: 200ns, end: 24100ns, duration: 23.9µs)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 308) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 748600ns, end: 749100ns, duration: 500ns)">
+<div class="section lock" style="width: 40%; margin-left: 40%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 314) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 612500ns, end: 614200ns, duration: 1.7µs)">
+<div class="section lock" style="width: 18%; margin-left: 24%;" title="lock (start: 400ns, end: 700ns, duration: 300ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 315) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 9%;" title="critical (start: 614800ns, end: 616900ns, duration: 2.1µs)">
+<div class="section lock" style="width: 10%; margin-left: 10%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 316) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 803700ns, end: 805800ns, duration: 2.1µs)">
+<div class="section lock" style="width: 10%; margin-left: 10%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 317) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 806300ns, end: 807200ns, duration: 900ns)">
+<div class="section lock" style="width: 22%; margin-left: 22%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 329) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 749500ns, end: 751100ns, duration: 1.6µs)">
+<div class="section lock" style="width: 75%; margin-left: 13%;" title="lock (start: 200ns, end: 1400ns, duration: 1.2µs)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;wgpu_core::resource::BufferMapState&lt;wgpu_hal::vulkan::Api&gt&gt; (index: 337) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 751500ns, end: 751900ns, duration: 400ns)">
+<div class="section lock" style="width: 25%; margin-left: 50%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(alloc::sync::Arc&lt;wgpu_core::resource::Buffer&lt;wgpu_hal::vulkan::Api&gt&gt, wgpu_hal::BufferUses)&gt&gt; (index: 364) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 456300ns, end: 456900ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;wgpu_core::track::texture::TextureBindGroupStateData&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 365) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 7%;" title="critical (start: 457200ns, end: 458500ns, duration: 1.3µs)">
+<div class="section lock" style="width: 8%; margin-left: 15%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::TextureView&gt, alloc::sync::Arc&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 366) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 807700ns, end: 808600ns, duration: 900ns)">
+<div class="section lock" style="width: 22%; margin-left: 22%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;(wgpu_core::id::Id&lt;wgpu_core::id::markers::Sampler&gt, alloc::sync::Arc&lt;wgpu_core::resource::Sampler&lt;wgpu_hal::vulkan::Api&gt&gt)&gt&gt; (index: 367) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 12%;" title="critical (start: 808900ns, end: 809500ns, duration: 600ns)">
+<div class="section lock" style="width: 33%; margin-left: 33%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_hal::vulkan::Buffer&gt&gt; (index: 2183) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1207300ns, end: 1209800ns, duration: 2.5µs)">
+<div class="section lock" style="width: 8%; margin-left: 8%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_hal::vulkan::Buffer&gt&gt; (index: 2184) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1202000ns, end: 1205800ns, duration: 3.8µs)">
+<div class="section lock" style="width: 5%; margin-left: 5%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_hal::vulkan::Buffer&gt&gt; (index: 2185) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1195400ns, end: 1198600ns, duration: 3.2µs)">
+<div class="section lock" style="width: 6%; margin-left: 9%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_hal::vulkan::Buffer&gt&gt; (index: 2186) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 18%;" title="critical (start: 1182100ns, end: 1192200ns, duration: 10.1µs)">
+<div class="section lock" style="width: 2%; margin-left: 6%;" title="lock (start: 600ns, end: 800ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;alloc::vec::Vec&lt;alloc::sync::Weak&lt;wgpu_core::resource::TextureView&lt;wgpu_hal::vulkan::Api&gt&gt&gt&gt; (index: 2198) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 2%;" title="critical (start: 143400ns, end: 145400ns, duration: 2µs)">
+<div class="section lock" style="width: 10%; margin-left: 15%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+</div>
+<div class="lock">
+<div class="lock-title">Mutex&lt;core::option::Option&lt;wgpu_core::command::CommandBufferMutable&lt;wgpu_hal::vulkan::Api&gt&gt&gt; (index: 2200) (thread: 0)</div>
+<div class="section critical" style="width: 0%; margin-left: 3%;" title="critical (start: 198300ns, end: 199300ns, duration: 1µs)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 400ns, end: 600ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 7%; margin-left: 3%;" title="critical (start: 200900ns, end: 661400ns, duration: 460.5µs)">
+<div class="section lock" style="width: 0%; margin-left: 0%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 1%; margin-left: 10%;" title="critical (start: 663500ns, end: 698500ns, duration: 35µs)">
+<div class="section lock" style="width: 1%; margin-left: 1%;" title="lock (start: 300ns, end: 500ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 708700ns, end: 709400ns, duration: 700ns)">
+<div class="section lock" style="width: 29%; margin-left: 29%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 11%;" title="critical (start: 728300ns, end: 728900ns, duration: 600ns)">
+<div class="section lock" style="width: 17%; margin-left: 33%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+<div class="section critical" style="width: 1%; margin-left: 11%;" title="critical (start: 730700ns, end: 820100ns, duration: 89.4µs)">
+<div class="section lock" style="width: 0%; margin-left: 0%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 13%;" title="critical (start: 821400ns, end: 822200ns, duration: 800ns)">
+<div class="section lock" style="width: 25%; margin-left: 25%;" title="lock (start: 200ns, end: 400ns, duration: 200ns)">
+</div>
+</div>
+<div class="section critical" style="width: 0%; margin-left: 13%;" title="critical (start: 823000ns, end: 823500ns, duration: 500ns)">
+<div class="section lock" style="width: 20%; margin-left: 40%;" title="lock (start: 200ns, end: 300ns, duration: 100ns)">
+</div>
+</div>
+</div>
+</body>
+</div>
+</html>
