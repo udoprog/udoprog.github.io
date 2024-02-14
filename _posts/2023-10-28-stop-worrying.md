@@ -97,10 +97,10 @@ information and careful processing.
 <br>
 
 [The dictionary] I built this library for demands that archives are distributed.
-So one way or it has to be portable with byte ordering in mind. In this post
-I'll detail high level strategies to deal with byte ordering, and introduce the
-tools I've added to `musli-zerocopy` to make it - if not easy - manageable to
-work with.
+So one way or another it has to be portable with byte ordering in mind. In this
+post I'll detail high level strategies to deal with byte ordering, and introduce
+the tools I've added to `musli-zerocopy` to make it - if not easy - manageable
+to work with.
 
 [The dictionary]: https://github.com/udoprog/jpv
 
