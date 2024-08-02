@@ -23,7 +23,7 @@ We might opt to reach for some neat [binary serialization]. But even the fastest
 framework takes seconds to load the data set, which just isn't that great of a
 user experience for a CLI tool. This is understandable, because the job of a
 deserializer is broadly to take byte array and turn it into a data structure
-that the Rust application can use. Typically this is done by painstakingly walk
+that the Rust application can use. Typically this is done by painstakingly long walk
 through the data and convert it to boxes or lists or other things that Rust
 programmers can reason about.
 
@@ -174,9 +174,8 @@ struct Yoke {
 }
 ```
 
-So if we copy `Yoke` byte-by-byte, we will catch the value of `_pad1` and
-`_pad2` as well. This causes a problem, because these values are not
-*initialized*.
+So if we copy `Yoke` byte-by-byte, we will catch the value of `_pad1` as well.
+This causes a problem, because these values are not *initialized*.
 
 First, padding bytes are considered uninitialized. 
 
