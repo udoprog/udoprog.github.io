@@ -256,7 +256,7 @@ fn main() {
 
 > If that seems like too much, `musli-zerocopy` has a shorthand for the above
 > called
-> [init_padding](https://docs.rs/musli-zerocopy/latest/musli_zerocopy/trait.ZeroCopy.html#method.init_padding),
+> [initialize_padding](https://docs.rs/musli-zerocopy/latest/musli_zerocopy/trait.ZeroCopy.html#method.initialize_padding),
 > so the above becomes.
 
 Deserialization seems easy in comparison. As long as we know that the buffer
@@ -327,13 +327,13 @@ zero-sized, it still forces the whole structure to be aligned by `Yoke`. Since
 it's zero-sized, we must conclude that the subsequent `T` is stored at the same
 location, which luckily for us now is aligned by `Yoke`.
 
-This is a neat hack. And I do use it in some plakces to store the output of
+This is a neat hack. And I do use it in some places to store the output of
 `include_bytes!` in an aligned buffer. But as a tool it is rather clunky. We
 have to decide on the alignment up front at compile time.
 
 If only there was a [data structure] that understand how to align its memory...
 
-Ah well, that's for later. First we need to covert another problem with
+Ah well, that's for later. First we need to convert another problem with
 deserialization. What exactly constitutes a *legal bit patterns* for a
 structure?
 
